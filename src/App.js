@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getMenu, postOrder } from './utilis'
 
 function App () {
+  const [menu, setMenuItems] = useState({})
   useEffect(() => {
-    getMenu().then(data => console.log(data))
+    getMenu().then(menu => setMenuItems(menu))
     postOrder().then(data => console.log(data))
   }, [])
-
   return <div className='App'>Word.</div>
 }
 
