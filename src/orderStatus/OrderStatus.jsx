@@ -6,8 +6,8 @@ const styles = { border: '1px solid', padding: '20px', margin: '20px', width: '1
 const OrderStatus = ({ status }) => {
   return (
     <div style={styles}>
-      <p>Status of Order: {status.orderStatus}</p>
-      <p>Order Will Be Ready At: {status.orderReadyTime}</p>
+      <h2>Status of Order: {status.orderStatus}</h2>
+      <h2>Order Will Be Ready At: {status.orderReadyTime}</h2>
     </div>
   )
 }
