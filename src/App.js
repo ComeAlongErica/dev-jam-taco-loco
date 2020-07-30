@@ -11,7 +11,7 @@ const catContainerStyles = { width: '40%', flexGrow: 1 }
 function App () {
   const [menu, setMenuItems] = useState({})
   const [cart, setCart] = useState([])
-  const [orderStatus, setOrderStatus] = useState({})
+  const [orderStatus, setOrderStatus] = useState()
 
   useEffect(() => {
     getMenu().then(menu => setMenuItems(menu))

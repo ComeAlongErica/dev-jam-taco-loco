@@ -15,7 +15,7 @@ const Cart = ({ items, submitOrder }) => {
       {!isEmpty && items.map(item => (
         <CartItem key={item.id} item={item} />
       ))}
-      <CheckOut submitOrder={submitOrder} />
+      {!isEmpty && <CheckOut submitOrder={submitOrder} />}
     </div>
   )
 }
