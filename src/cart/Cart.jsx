@@ -7,7 +7,6 @@ const styles = { border: '1px solid', padding: '20px', margin: '20px' }
 
 const Cart = ({ items }) => {
   const isEmpty = items.length === 0 
-  console.log(isEmpty)
   return (
     <div style={styles}>
       <h2>Your Cart</h2>

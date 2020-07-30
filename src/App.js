@@ -18,9 +18,19 @@ function App () {
   }, [])
 
   const addToCart = item => {
-    setCart([...cart, item])
+    let cartClone = [...cart]
+    const itemIndex = cartClone.findIndex(cartItem => cartItem.name === item.name)
+    if (itemIndex === -1) {
+      item.quantity = 1
+      cartClone.push(item)
+    } else {
+      cartClone[itemIndex].quantity++
+    }
+    setCart(cartClone)
   }
+
   const doCatsExist = menu.categories && menu.categories.length
+  
   return (
     <div style={constainerStyles}>
       <div style={catContainerStyles}>

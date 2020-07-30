@@ -11,6 +11,7 @@ const CartItem = ({ item }) => {
       <div style={styles}>
         <h3>{item.name}</h3>
         <p>Price: {item.price}</p>
+        <p>quantity: {item.quantity}</p>
       </div>
   )
 }
