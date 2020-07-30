@@ -8,7 +8,7 @@ const Item = ({ handleClick }) => {
 }
 
 Item.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func
 }
 
 export default Item

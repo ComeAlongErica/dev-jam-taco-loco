@@ -21,7 +21,7 @@ const CartItem = ({ item }) => {
 }
 
 CartItem.propTypes = {
-  item: PropTypes.object.isRequired
+  item: PropTypes.object
 }
 
 export default CartItem

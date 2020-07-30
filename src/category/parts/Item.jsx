@@ -32,7 +32,7 @@ const Item = ({ item, addToCart }) => {
 }
 
 Item.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.object,
   addToCart: PropTypes.func
 }
 

@@ -19,7 +19,7 @@ const Category = ({ items, addToCart }) => {
 }
 
 Category.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.array,
   addToCart: PropTypes.func
 }
 

@@ -29,8 +29,13 @@ function App () {
     setCart(cartClone)
   }
 
+  const submitOrder = (e, userName) => {
+    e.preventDefault()
+    console.log(userName)
+  }
+
   const doCatsExist = menu.categories && menu.categories.length
-  
+
   return (
     <div style={constainerStyles}>
       <div style={catContainerStyles}>
@@ -40,7 +45,7 @@ function App () {
             <Category key={idx} items={menu[data]} addToCart={addToCart} />
           ))}
       </div>
-      <Cart items={cart} />
+      <Cart items={cart} submitOrder={submitOrder} />
     </div>
   )
 }
