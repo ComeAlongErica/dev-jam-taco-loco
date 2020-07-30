@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 
 import Category from './category/Category'
 import Cart from './cart/Cart'
-import { getMenu, postOrder } from './utilis'
+import { getMenu, postOrder, getTotal } from './utilis'
 
-const constainerStyles = { display: 'flex' }
-const catContainerStyles = { flexGrow: 1 }
+const containerStyles = { display: 'flex', flexWrap: 'wrap' }
+const catContainerStyles = { width: '40%', flexGrow: 1 }
 
 function App () {
   const [menu, setMenuItems] = useState({})
@@ -14,12 +14,13 @@ function App () {
 
   useEffect(() => {
     getMenu().then(menu => setMenuItems(menu))
-    // postOrder().then(data => setMenuItems(data))
   }, [])
 
   const addToCart = item => {
     let cartClone = [...cart]
-    const itemIndex = cartClone.findIndex(cartItem => cartItem.name === item.name)
+    const itemIndex = cartClone.findIndex(
+      cartItem => cartItem.name === item.name
+    )
     if (itemIndex === -1) {
       item.quantity = 1
       cartClone.push(item)
@@ -29,15 +30,20 @@ function App () {
     setCart(cartClone)
   }
 
-  const submitOrder = (e, userName) => {
-    e.preventDefault()
-    console.log(userName)
+  const submitOrder = userName => {
+    let body = {
+      customerName: userName,
+      totalPrice: getTotal(cart),
+      orderItems: cart
+    }
+    postOrder(body).then(resp => setOrderStatus(resp))
   }
 
   const doCatsExist = menu.categories && menu.categories.length
 
+  console.log(orderStatus)
   return (
-    <div style={constainerStyles}>
+    <div style={containerStyles}>
       <div style={catContainerStyles}>
         {!doCatsExist && <p>Please wait...</p>}
         {doCatsExist &&

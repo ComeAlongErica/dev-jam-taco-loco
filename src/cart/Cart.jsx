@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import CartItem from './parts/CartItem'
 import CheckOut from './parts/CheckOut'
 
-const styles = { border: '1px solid', padding: '20px', margin: '20px' }
+const styles = { border: '1px solid', padding: '20px', margin: '20px', width: '40%' }
 
 const Cart = ({ items, submitOrder }) => {
   const isEmpty = items.length === 0 

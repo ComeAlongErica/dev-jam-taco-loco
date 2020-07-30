@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Item from './parts/Item'
 
-const styles = { border: '1px solid', padding: '20px', margin: '20px' }
+const styles = { border: '1px solid', padding: '20px', margin: '20px'}
 
 const Category = ({ items, addToCart }) => {
   const name = items[0].category

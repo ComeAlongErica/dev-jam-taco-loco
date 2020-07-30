@@ -12,7 +12,7 @@ const Item = ({ submitOrder }) => {
   const handleClick = e => {
     e.preventDefault()
     if (userName.length) {
-      submitOrder()
+      submitOrder(userName)
     } else {
       setError(true)
     }

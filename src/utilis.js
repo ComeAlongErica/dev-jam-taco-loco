@@ -1,4 +1,6 @@
-let server = 'https://virtserver.swaggerhub.com/Detroit_Labs/Taco_Truck/1.0.0/'
+const server =
+  'https://virtserver.swaggerhub.com/Detroit_Labs/Taco_Truck/1.0.0/'
+
 const sortMenu = menu => {
   let sortedMenu = { categories: [] }
 
@@ -35,4 +37,17 @@ const postOrder = orderData => {
     .catch(error => console.log('error: ', error))
 }
 
-export { getMenu, postOrder }
+const getTotal = cart => {
+  let total = 0
+  cart.forEach(item => {
+    const totalPrice = item.price * item.quantity
+    const isDiscount = item.quantity >= item.discount_threshold
+    const discountPrice = isDiscount
+      ? (item.discount_percent / 100) * totalPrice
+      : 0
+    total += totalPrice - discountPrice
+  })
+  return total
+}
+
+export { getMenu, postOrder, getTotal }

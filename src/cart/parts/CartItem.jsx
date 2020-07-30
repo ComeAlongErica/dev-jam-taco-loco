@@ -7,9 +7,9 @@ const styles = {
 }
 
 const CartItem = ({ item }) => {
-  let totalPrice = (item.price * item.quantity)
-  let isDiscount = item.quantity >= item.discount_threshold
-  let discountPrice = isDiscount ? (item.discount_percent / 100) * totalPrice : 0
+  const totalPrice = (item.price * item.quantity)
+  const isDiscount = item.quantity >= item.discount_threshold
+  const discountPrice = isDiscount ? (item.discount_percent / 100) * totalPrice : 0
   return (
       <div style={styles}>
         <h3>{item.name}</h3>
