@@ -5,17 +5,17 @@ import { getMenu, postOrder } from './utilis'
 
 function App () {
   const [menu, setMenuItems] = useState({})
+  const [cart, setCart] = useState([])
   const [orderStatus, setOrderStatus] = useState({})
 
   useEffect(() => {
     getMenu().then(menu => setMenuItems(menu))
+    // postOrder().then(data => setMenuItems(data))
   }, [])
 
   const addToCart = item => {
-    console.log(item)
-    postOrder().then(data => setMenuItems(data))
+    setCart([...cart, item])
   }
-
   const doCatsExist = menu.categories && menu.categories.length
   return (
     <div className='App'>
