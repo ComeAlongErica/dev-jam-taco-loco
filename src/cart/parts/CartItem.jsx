@@ -7,11 +7,15 @@ const styles = {
 }
 
 const CartItem = ({ item }) => {
+  let totalPrice = (item.price * item.quantity)
+  let isDiscount = item.quantity >= item.discount_threshold
+  let discountPrice = isDiscount ? (item.discount_percent / 100) * totalPrice : 0
   return (
       <div style={styles}>
         <h3>{item.name}</h3>
-        <p>Price: {item.price}</p>
+        <p>Price: ${(totalPrice - discountPrice).toFixed(2)}</p>
         <p>quantity: {item.quantity}</p>
+        {isDiscount&& <p>Discount of {item.discount_percent}% is applied.</p>}
       </div>
   )
 }
