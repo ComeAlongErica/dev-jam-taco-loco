@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
 import Category from './category/Category'
+import Cart from './cart/Cart'
 import { getMenu, postOrder } from './utilis'
+
+const constainerStyles = { display: 'flex' }
+const catContainerStyles = { flexGrow: 1 }
 
 function App () {
   const [menu, setMenuItems] = useState({})
@@ -18,12 +22,15 @@ function App () {
   }
   const doCatsExist = menu.categories && menu.categories.length
   return (
-    <div className='App'>
-      {!doCatsExist && <p>Please wait...</p>}
-      {doCatsExist &&
-        menu.categories.map((data, idx) => (
-          <Category key={idx} items={menu[data]} addToCart={addToCart} />
-        ))}
+    <div style={constainerStyles}>
+      <div style={catContainerStyles}>
+        {!doCatsExist && <p>Please wait...</p>}
+        {doCatsExist &&
+          menu.categories.map((data, idx) => (
+            <Category key={idx} items={menu[data]} addToCart={addToCart} />
+          ))}
+      </div>
+      <Cart items={cart} />
     </div>
   )
 }

@@ -9,7 +9,7 @@ const Category = ({ items, addToCart }) => {
   const name = items[0].category
 
   return (
-    <div className='caterory' style={styles}>
+    <div style={styles}>
       <h2>{name}</h2>
       {items.map(item => (
         <Item key={item.id} item={item} addToCart={addToCart} />
