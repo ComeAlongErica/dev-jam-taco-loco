@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import Category from './category/Category'
 import Cart from './cart/Cart'
+import OrderStatus from './orderStatus/OrderStatus'
 import { getMenu, postOrder, getTotal } from './utilis'
 
 const containerStyles = { display: 'flex', flexWrap: 'wrap' }
@@ -41,9 +42,9 @@ function App () {
 
   const doCatsExist = menu.categories && menu.categories.length
 
-  console.log(orderStatus)
   return (
     <div style={containerStyles}>
+      {orderStatus && <OrderStatus status={orderStatus} />}
       <div style={catContainerStyles}>
         {!doCatsExist && <p>Please wait...</p>}
         {doCatsExist &&
