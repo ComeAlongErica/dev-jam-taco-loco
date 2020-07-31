@@ -6,7 +6,7 @@ In this project customers are able to
 - add items to their order
 - send the order to Taco Loco for pickup
 - see display time for pick up
-- get discounts on items once eligiable for promotion
+- get discounts on items once eligible for promotion
 - see items by category
 
 ## Available Scripts
