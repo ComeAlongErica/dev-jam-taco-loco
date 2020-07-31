@@ -18,7 +18,7 @@ const Item = ({ item, addToCart }) => {
     <div className='item' style={itemStyles}>
       <div style={infoStyles}>
         <h3>{item.name}</h3>
-        <p>Price: {item.price}</p>
+        <p>Price: ${item.price.toFixed(2)}</p>
         {item.discount_threshold && item.discount_percent && (
           <p>
             Promo: buy {item.discount_threshold} get {item.discount_percent}%
